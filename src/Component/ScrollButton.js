@@ -8,8 +8,16 @@ const Button = styled.button`
 `;
 
 export default ({ text, to }) => {
-  const onClick = () => {
-    console.log("clicked");
+  const btn = document.getElementById("header");
+  console.log(btn);
+  const onClick = (e) => {
+    e.preventDefault();
+    const offsetTop = document.querySelector(`#${to}`).offsetTop;
+
+    window.scroll({
+      top: offsetTop,
+      behavior: "smooth"
+    });
   };
 
   return <Button onClick={onClick}>{text}</Button>;

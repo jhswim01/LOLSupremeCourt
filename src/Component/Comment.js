@@ -7,5 +7,5 @@ const Wrapper = styled.div`
 `;
 
 export default () => {
-  return <Wrapper>comment</Wrapper>;
+  return <Wrapper id="commentWrapper">comment</Wrapper>;
 };

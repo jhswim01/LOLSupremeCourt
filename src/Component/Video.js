@@ -7,5 +7,5 @@ const Wrapper = styled.div`
 `;
 
 export default () => {
-  return <Wrapper>video</Wrapper>;
+  return <Wrapper id="videoWrapper">video</Wrapper>;
 };

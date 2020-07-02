@@ -16,11 +16,11 @@ const Header = styled.header`
 
 export default () => {
   return (
-    <Header>
-      <ScrollButton text="video" />
-      <ScrollButton text="vote" />
-      <ScrollButton text="result" />
-      <ScrollButton text="comment" />
+    <Header id="header">
+      <ScrollButton text="video" to="videoWrapper" />
+      <ScrollButton text="vote" to="voteWrapper" />
+      <ScrollButton text="result" to="voteResultWrapper" />
+      <ScrollButton text="comment" to="commentWrapper" />
     </Header>
   );
 };

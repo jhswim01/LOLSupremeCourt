@@ -7,5 +7,5 @@ const Wrapper = styled.div`
 `;
 
 export default () => {
-  return <Wrapper>vote</Wrapper>;
+  return <Wrapper id="voteWrapper">vote</Wrapper>;
 };
