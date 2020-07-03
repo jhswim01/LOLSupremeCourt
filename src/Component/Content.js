@@ -10,15 +10,30 @@ const Content = styled.div`
   min-height: 200px;
   height: 300vh;
   background-color: yellow;
+  display: flex;
+  flex-direction: column;
+`;
+
+const ContentWrapper = styled.div`
+  width: 100%;
+  flex: 1 1 auto;
 `;
 
 export default () => {
   return (
     <Content>
-      <Video />
-      <Vote />
-      <VoteResult />
-      <Comment />
+      <ContentWrapper id="contentWrapper_0">
+        <Video />
+      </ContentWrapper>
+      <ContentWrapper id="contentWrapper_1">
+        <Vote />
+      </ContentWrapper>
+      <ContentWrapper id="contentWrapper_2">
+        <VoteResult />
+      </ContentWrapper>
+      <ContentWrapper id="contentWrapper_3">
+        <Comment />
+      </ContentWrapper>
     </Content>
   );
 };

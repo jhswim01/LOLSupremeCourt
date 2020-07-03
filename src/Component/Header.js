@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import ScrollButton from "./ScrollButton";
 
@@ -11,16 +11,40 @@ const Header = styled.header`
   top: 0;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: center;k
 `;
 
 export default () => {
+  let headerHeight;
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    headerHeight = headerRef.current.offsetHeight;
+    console.log(headerHeight);
+  }, []);
+
   return (
-    <Header id="header">
-      <ScrollButton text="video" to="videoWrapper" />
-      <ScrollButton text="vote" to="voteWrapper" />
-      <ScrollButton text="result" to="voteResultWrapper" />
-      <ScrollButton text="comment" to="commentWrapper" />
+    <Header id="header" ref={headerRef}>
+      <ScrollButton
+        text="video"
+        scrollTo="contentWrapper_0"
+        offset={-headerHeight}
+      />
+      <ScrollButton
+        text="vote"
+        scrollTo="contentWrapper_1"
+        offset={-headerHeight}
+      />
+      <ScrollButton
+        text="result"
+        scrollTo="contentWrapper_2"
+        offset={-headerHeight}
+      />
+      <ScrollButton
+        text="comment"
+        scrollTo="contentWrapper_3"
+        offset={-headerHeight}
+      />
     </Header>
   );
 };

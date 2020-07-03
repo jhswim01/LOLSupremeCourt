@@ -7,16 +7,17 @@ const Button = styled.button`
   background-color: rgba(253, 167, 223, 1);
 `;
 
-export default ({ text, to }) => {
-  const btn = document.getElementById("header");
-  console.log(btn);
+export default ({ text, scrollTo, offset }) => {
+  if (!offset) {
+    offset = 0;
+  }
   const onClick = (e) => {
     e.preventDefault();
-    const offsetTop = document.querySelector(`#${to}`).offsetTop;
+    const offsetTop = document.querySelector(`#${scrollTo}`).offsetTop;
 
     window.scroll({
-      top: offsetTop,
-      behavior: "smooth"
+      top: offsetTop + offset,
+      behavior: "smooth",
     });
   };
 
