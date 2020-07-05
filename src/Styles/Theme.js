@@ -1,5 +1,6 @@
 const BOX_BORDER = "1px solid #e6e6e6";
 const BORDER_RADIUS = "4px";
+const HEADER_HEIGHT = "70px";
 
 export default {
   bgColor: "#FAFAFA",
@@ -15,4 +16,5 @@ export default {
              ${BORDER_RADIUS};
              background-color:white;
             `,
+  headerHeight: HEADER_HEIGHT
 };

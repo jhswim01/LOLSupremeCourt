@@ -8,16 +8,17 @@ const Button = styled.button`
 `;
 
 export default ({ text, scrollTo, offset }) => {
-  if (!offset) {
+  if (typeof offset !== "number") {
     offset = 0;
   }
+
   const onClick = (e) => {
     e.preventDefault();
     const offsetTop = document.querySelector(`#${scrollTo}`).offsetTop;
 
     window.scroll({
       top: offsetTop + offset,
-      behavior: "smooth",
+      behavior: "smooth"
     });
   };
 

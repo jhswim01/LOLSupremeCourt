@@ -6,12 +6,13 @@ import VoteResult from "./VoteResult";
 import Comment from "./Comment";
 
 const Content = styled.div`
-  width: 100%;
+  width: 100vw;
   min-height: 200px;
-  height: 300vh;
+  height: 400vh;
   background-color: yellow;
   display: flex;
   flex-direction: column;
+  margin-top: ${(props) => props.theme.headerHeight};
 `;
 
 const ContentWrapper = styled.div`

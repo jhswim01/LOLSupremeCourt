@@ -1,30 +1,28 @@
-import React, { useEffect, useRef } from "react";
-import styled from "styled-components";
+import React, { useContext } from "react";
+import styled, { ThemeContext } from "styled-components";
 import ScrollButton from "./ScrollButton";
 
 const Header = styled.header`
-  width: 100%;
+  width: 100vw;
   height: 70px;
   background-color: rgba(189, 195, 199, 1);
   opacity: 0.7;
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 0px;
+  left: auto;
+  right: 0px;
   display: flex;
   justify-content: space-around;
-  align-items: center;k
+  align-items: center;
+  z-index: 2;
 `;
 
 export default () => {
-  let headerHeight;
-  const headerRef = useRef(null);
-
-  useEffect(() => {
-    headerHeight = headerRef.current.offsetHeight;
-    console.log(headerHeight);
-  }, []);
+  const themeContext = useContext(ThemeContext);
+  const headerHeight = parseInt(themeContext.headerHeight);
 
   return (
-    <Header id="header" ref={headerRef}>
+    <Header>
       <ScrollButton
         text="video"
         scrollTo="contentWrapper_0"
