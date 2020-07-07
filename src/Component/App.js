@@ -6,60 +6,44 @@ import Header from "./Header";
 import Content from "./Content";
 import Footer from "./Footer";
 import SwipeableViews from "react-swipeable-views";
+import { virtualize } from "react-swipeable-views-utils";
+import { mod } from "react-swipeable-views-core";
 
-const ContentWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100vw;
-  overflow: hidden;
-`;
+const VirtualizeSwipeableViews = virtualize(SwipeableViews);
 
-const styles = {
-  slide: {
-    padding: 15,
-    minHeight: 100,
-    color: "#fff"
-  },
-  slide1: {
-    background: "#FEA900"
-  },
-  slide2: {
-    background: "#B3DC4A"
-  },
-  slide3: {
-    background: "#6AC0FF"
+function slideRenderer(params) {
+  const { index, key } = params;
+  // console.log("index inside renderer:", index);
+  // console.log("key inside renderer:", key);
+  const N_MOD = 3;
+
+  switch (mod(index, N_MOD)) {
+    case 0:
+      return <Content key={key} index={mod(index, N_MOD)} />;
+    case 1:
+      return <Content key={key} index={mod(index, N_MOD)} />;
+    case 2:
+      return <Content key={key} index={mod(index, N_MOD)} />;
+    default:
+      return null;
   }
-};
+}
 
 export default () => (
   <ThemeProvider theme={Theme}>
     <GlobalStyles />
     <Header></Header>
-    <SwipeableViews
+    <VirtualizeSwipeableViews
+      slideRenderer={slideRenderer}
       onChangeIndex={(index, indexLatest, meta) => {
         console.log("change index");
         console.log(index, indexLatest, meta);
         window.scroll({
           top: 0,
-          behavior: "smooth"
+          behavior: "smooth",
         });
       }}
-    >
-      <Content />
-      <Content />
-      <Content />
-    </SwipeableViews>
+    />
     <Footer></Footer>
   </ThemeProvider>
 );
-
-// export default () => (
-//   <ThemeProvider theme={Theme}>
-//     <GlobalStyles />
-//     <Header></Header>
-//     <ContentWrapper>
-//       <Content></Content>
-//     </ContentWrapper>
-//     <Footer></Footer>
-//   </ThemeProvider>
-// );

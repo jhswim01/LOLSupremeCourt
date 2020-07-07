@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import Comment from "./Comment";
 import Video from "./Video";
 import Vote from "./Vote";
 import VoteResult from "./VoteResult";
-import Comment from "./Comment";
 
 const Content = styled.div`
   width: 100vw;
@@ -20,11 +20,12 @@ const ContentWrapper = styled.div`
   flex: 1 1 auto;
 `;
 
-export default () => {
+export default ({ key, index }) => {
   return (
     <Content>
+      {`${index}`}
       <ContentWrapper id="contentWrapper_0">
-        <Video />
+        <Video index={index} />
       </ContentWrapper>
       <ContentWrapper id="contentWrapper_1">
         <Vote />

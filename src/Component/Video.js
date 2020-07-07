@@ -28,12 +28,32 @@ const Video = styled(ReactPlayer)`
   left: 0;
 `;
 
-export default () => {
+let contentStatus = [
+  {
+    url: "https://www.youtube.com/watch?v=dK8i5uwBM9c",
+  },
+  {
+    url: "https://www.youtube.com/watch?v=oOd0IKWwg1E",
+  },
+  {
+    url: "https://www.youtube.com/watch?v=rT-Sz6pYQm0",
+  },
+  {
+    url: "https://www.youtube.com/watch?v=bHS9ZGzWmEo",
+  },
+  {
+    url: "https://www.youtube.com/watch?v=C-CCXbpfvVM",
+  },
+];
+
+export default ({ index }) => {
+  console.log("video.js called. index:", index);
+
   return (
     <Wrapper>
       <PlayerWrapper className="playerWrapper">
         <Video
-          url="https://www.youtube.com/watch?v=dK8i5uwBM9c"
+          url={contentStatus[index].url}
           controls
           playing={false}
           width="100%"
