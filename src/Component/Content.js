@@ -8,8 +8,8 @@ import VoteResult from "./VoteResult";
 const Content = styled.div`
   width: 100vw;
   min-height: 200px;
-  height: 400vh;
-  background-color: yellow;
+  height: 260vh;
+  background-color: ${(props) => props.theme.bgColor};
   display: flex;
   flex-direction: column;
   margin-top: ${(props) => props.theme.headerHeight};
@@ -17,18 +17,29 @@ const Content = styled.div`
 
 const ContentWrapper = styled.div`
   width: 100%;
+  height: 70vh;
   flex: 1 1 auto;
 `;
 
-export default ({ key, index }) => {
+const VideoWrapper = styled.div`
+  width: 100%;
+  height: 50vh;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+export default ({ index, className, playing, url, vote }) => {
+  console.log("playing ", playing);
+
   return (
-    <Content>
-      {`${index}`}
-      <ContentWrapper id="contentWrapper_0">
-        <Video index={index} />
-      </ContentWrapper>
+    <Content className={className}>
+      <VideoWrapper id="contentWrapper_0">
+        <Video index={index} playing={playing} url={url} />
+      </VideoWrapper>
       <ContentWrapper id="contentWrapper_1">
-        <Vote />
+        <Vote vote={vote} />
       </ContentWrapper>
       <ContentWrapper id="contentWrapper_2">
         <VoteResult />

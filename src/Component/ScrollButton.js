@@ -4,10 +4,10 @@ import styled from "styled-components";
 const Button = styled.button`
   height: 70%;
   width: 70px;
-  background-color: rgba(253, 167, 223, 1);
+  background-color: ${(props) => props.theme.headerButton};
 `;
 
-export default ({ text, scrollTo, offset }) => {
+export default ({ text, scrollTo, offset, className }) => {
   if (typeof offset !== "number") {
     offset = 0;
   }
@@ -22,5 +22,9 @@ export default ({ text, scrollTo, offset }) => {
     });
   };
 
-  return <Button onClick={onClick}>{text}</Button>;
+  return (
+    <Button onClick={onClick} className={className}>
+      {text}
+    </Button>
+  );
 };

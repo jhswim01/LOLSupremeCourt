@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ReactPlayer from "react-player/youtube";
 
 const Wrapper = styled.div`
-  background-color: rgba(52, 152, 219, 1);
+  background-color: ${(props) => props.theme.bgColor};
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -13,53 +13,59 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
+const VideoTitle = styled.div`
+  width: 90%;
+  height: 50px;
+  margin: 20px 15px 30px 15px;
+  padding: 7px 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 22px;
+  border-bottom: 2px solid #5ab9ea;
+`;
+
+const VideoWidthWrapper = styled.div`
+  width: 90%;
+`;
+
 const PlayerWrapper = styled.div`
-  margin-top: 5vh;
   background-color: #ff6b81;
   position: relative;
   padding-top: 56.25%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const Video = styled(ReactPlayer)`
-  background-color: red;
+  background-color: #c1c8e4;
   position: absolute;
   top: 0;
   left: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 `;
 
-let contentStatus = [
-  {
-    url: "https://www.youtube.com/watch?v=dK8i5uwBM9c",
-  },
-  {
-    url: "https://www.youtube.com/watch?v=oOd0IKWwg1E",
-  },
-  {
-    url: "https://www.youtube.com/watch?v=rT-Sz6pYQm0",
-  },
-  {
-    url: "https://www.youtube.com/watch?v=bHS9ZGzWmEo",
-  },
-  {
-    url: "https://www.youtube.com/watch?v=C-CCXbpfvVM",
-  },
-];
-
-export default ({ index }) => {
+export default ({ index, playing, url }) => {
   console.log("video.js called. index:", index);
 
   return (
     <Wrapper>
-      <PlayerWrapper className="playerWrapper">
-        <Video
-          url={contentStatus[index].url}
-          controls
-          playing={false}
-          width="100%"
-          height="100%"
-        />
-      </PlayerWrapper>
+      <VideoTitle>Video Title</VideoTitle>
+      <VideoWidthWrapper>
+        <PlayerWrapper className="playerWrapper">
+          <Video
+            url={url}
+            controls
+            playing={playing}
+            width="100%"
+            height="100%"
+            volume={0.5}
+            muted={true}
+          />
+        </PlayerWrapper>
+      </VideoWidthWrapper>
     </Wrapper>
   );
 };
