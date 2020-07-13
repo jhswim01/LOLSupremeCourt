@@ -28,6 +28,7 @@ const VideoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: white;
 `;
 
 export default ({ index, className, playing, url, vote }) => {

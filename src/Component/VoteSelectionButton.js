@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { CheckboxIcon } from "./Icons";
 
 const Wrapper = styled.div`
@@ -35,13 +35,25 @@ const VoteSelectButton = styled.button`
     background-color: #5680e9;
     color: white;
     outline: 0;
-    transition: all 0.5s;
+    transition: all 0.8s;
     border: none;
     border-radius: 20px;
   }
   &:focus > svg,
   &:hover > svg {
     fill: white;
+  }
+`;
+
+const clickAnimation = keyframes`
+  0% {
+
+  }
+  50% {
+
+  }
+  100% {
+    
   }
 `;
 

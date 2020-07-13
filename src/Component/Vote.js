@@ -23,7 +23,7 @@ const VoteConfirmButton = styled(ScrollButton)`
   border-radius: 20px;
   &:active {
     outline: none;
-    filter: brightness(0.8);
+    filter: brightness(0.7);
   }
   &:focus {
     outline: none;
