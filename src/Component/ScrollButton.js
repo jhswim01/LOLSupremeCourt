@@ -7,7 +7,7 @@ const Button = styled.button`
   background-color: ${(props) => props.theme.headerButton};
 `;
 
-export default ({ text, scrollTo, offset, className }) => {
+export default ({ text, scrollTo, offset, className, icon }) => {
   if (typeof offset !== "number") {
     offset = 0;
   }
@@ -17,7 +17,7 @@ export default ({ text, scrollTo, offset, className }) => {
     const offsetTop = document.querySelector(`#${scrollTo}`).offsetTop;
 
     window.scroll({
-      top: offsetTop + offset,
+      top: offsetTop + 2.5 * offset,
       behavior: "smooth"
     });
   };
@@ -25,6 +25,7 @@ export default ({ text, scrollTo, offset, className }) => {
   return (
     <Button onClick={onClick} className={className}>
       {text}
+      {icon}
     </Button>
   );
 };

@@ -3,7 +3,6 @@ import styled from "styled-components";
 import ReactPlayer from "react-player/youtube";
 
 const Wrapper = styled.div`
-  background-color: ${(props) => props.theme.bgColor};
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -14,19 +13,28 @@ const Wrapper = styled.div`
 `;
 
 const VideoTitle = styled.div`
+  position: relative;
   width: 90%;
   height: 50px;
-  margin: 20px 15px 30px 15px;
-  padding: 7px 10px;
+  margin: 35px 15px 35px 15px;
+  padding: 0px 10px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-size: 22px;
-  border-bottom: 2px solid #5ab9ea;
+  font-size: 20px;
+  font-weight: 600;
+  &:before {
+    border-bottom: 2px solid #5ab9ea;
+    content: "";
+    position: absolute;
+    left: 2.5%;
+    bottom: 0;
+    width: 95%;
+  }
 `;
 
 const VideoWidthWrapper = styled.div`
-  width: 90%;
+  width: 100vw;
 `;
 
 const PlayerWrapper = styled.div`
@@ -47,12 +55,15 @@ const Video = styled(ReactPlayer)`
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 `;
 
-export default ({ index, playing, url }) => {
+export default ({ index, playing, url, title }) => {
   console.log("video.js called. index:", index);
 
   return (
     <Wrapper>
-      <VideoTitle>Video Title</VideoTitle>
+      <VideoTitle>
+        {title && title}
+        {!title && "Video Title"}
+      </VideoTitle>
       <VideoWidthWrapper>
         <PlayerWrapper className="playerWrapper">
           <Video

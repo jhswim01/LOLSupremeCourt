@@ -5,13 +5,14 @@ import Content from "./Content";
 import contentStatus from "../videoData";
 
 const SwiperWrapper = styled.div`
+  background-color: ${(props) => props.theme.bgColor};
   .swiper-container {
     width: 100%;
     height: 100%;
     position: relative;
     z-index: 1;
     margin: 0px auto;
-    overflow: hidden;
+    overflow: auto;
     list-style: none;
     padding: 0px;
   }
@@ -109,7 +110,7 @@ const LoopModeInfinityLoop = () => {
             <Content
               index={index}
               playing={index === swipeActiveIndex}
-              url={contentStatus[index].url}
+              video={contentStatus[index].video}
               vote={contentStatus[index].vote}
             />
           </div>

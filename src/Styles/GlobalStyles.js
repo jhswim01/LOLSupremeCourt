@@ -3,7 +3,7 @@ import reset from "styled-reset";
 
 export default createGlobalStyle`
     ${reset};
-    * {
-        box-sizing: border-box;
-    }
+    *, *:before, *:after, html {
+        font-family: 'Noto Sans KR', sans-serif;
+    }    
 `;
