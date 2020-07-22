@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import { HamburgerIcon, XIcon } from "./Icons";
+import { HamburgerIcon } from "./Icons";
 
 const clickAnimation = keyframes`
   0% {
@@ -40,16 +40,10 @@ const WrapperButton = styled.button`
   }
 `;
 
-const onClick = (e) => {
-  e.currentTarget.children[0].classList.toggle("hidden");
-  e.currentTarget.children[1].classList.toggle("hidden");
-};
-
-export default () => {
+export default ({ onHamburgerButtonClick }) => {
   return (
-    <WrapperButton onClick={onClick}>
+    <WrapperButton onClick={onHamburgerButtonClick}>
       <HamburgerIcon size={20}></HamburgerIcon>
-      <XIcon size={18} className="hidden"></XIcon>
     </WrapperButton>
   );
 };

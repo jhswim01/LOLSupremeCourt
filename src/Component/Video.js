@@ -56,7 +56,7 @@ const Video = styled(ReactPlayer)`
 `;
 
 export default ({ index, playing, url, title }) => {
-  console.log("video.js called. index:", index);
+  // console.log("video.js called. index:", index);
 
   return (
     <Wrapper>

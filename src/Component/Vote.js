@@ -63,7 +63,7 @@ const VoteConfirmButton = styled(ScrollButton)`
 export default ({ vote }) => {
   const themeContext = useContext(ThemeContext);
   const headerHeight = parseInt(themeContext.headerHeight);
-  console.log(vote);
+  // console.log(vote);
 
   return (
     <Wrapper>

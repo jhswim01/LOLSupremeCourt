@@ -11,7 +11,13 @@ export default [
         { text: "불쌍하다ㅜㅜ", result: 7 }
       ]
     },
-    comment: []
+    comment: [
+      { user: "박원순", text: "시발년아...", date: "어제" },
+      { user: "박원순", text: "시발년아...", date: "어제" },
+      { user: "박원순", text: "시발년아...", date: "어제" },
+      { user: "박원순", text: "시발년아...", date: "어제" },
+      { user: "박원순", text: "시발년아...", date: "어제" }
+    ]
   },
   {
     video: {

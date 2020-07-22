@@ -2,12 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import VoteResultChart from "./VoteResultChart";
 import VotePercentageBox from "./VotePercentageBox";
+import VoteQuestionTitle from "./VoteQuestionTitle";
 
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 `;
 
@@ -28,7 +29,7 @@ export default ({ result }) => {
 
   return (
     <Wrapper>
-      투표결과입니다!
+      <VoteQuestionTitle text="투표 결과 입니다!" />
       <VoteResultChart result={result} />
       <PercetageBoxWrapper>
         {result &&

@@ -40,11 +40,11 @@ const VideoWrapper = styled.div`
   border-radius: 10px;
 `;
 
-export default ({ index, className, playing, video, vote }) => {
-  console.log("playing ", playing);
+export default ({ index, className, playing, video, vote, comment }) => {
+  // console.log("playing ", playing);
   const ref = useRef(null);
   const onScroll = (e) => {
-    console.log(e.target.offsetHeight);
+    // console.log(e.target.offsetHeight);
   };
 
   return (
@@ -64,7 +64,7 @@ export default ({ index, className, playing, video, vote }) => {
         <VoteResult result={vote.selection} />
       </ContentWrapper>
       <ContentWrapper id="contentWrapper_3">
-        <Comment />
+        <Comment comment={comment} />
       </ContentWrapper>
     </Content>
   );

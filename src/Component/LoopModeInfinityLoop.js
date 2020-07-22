@@ -54,14 +54,14 @@ const SwiperWrapper = styled.div`
 `;
 
 const LoopModeInfinityLoop = () => {
-  console.log("loop component function start");
+  // console.log("loop component function start");
 
   const colorBar = ["#FFC312", "#C4E538", "#12CBC4", "#FDA7DF", "#ED4C67"];
 
   const [swipeActiveIndex, setSwipeActiveIndex] = useState(0);
   const [videoIndex, setVideoIndex] = useState(0);
   const [virtualArray, setVirtualArray] = useState(colorBar);
-  console.log(virtualArray);
+  // console.log(virtualArray);
 
   const params = {
     slidesPerView: 1,
@@ -70,14 +70,14 @@ const LoopModeInfinityLoop = () => {
     runCallbacksOnInit: false,
     on: {
       init: (swiper) => {
-        console.log("init swiper");
+        // console.log("init swiper");
       },
       slideChange: (swiper) => {
-        console.log("active index: ", swiper.activeIndex);
-        console.log("real index: ", swiper.realIndex);
+        // console.log("active index: ", swiper.activeIndex);
+        // console.log("real index: ", swiper.realIndex);
       },
       slideNextTransitionEnd: (swiper) => {
-        console.log("next slide");
+        // console.log("next slide");
         setVideoIndex((videoIndex) => videoIndex + 1);
         setSwipeActiveIndex(swiper.activeIndex);
         setVirtualArray((virtualArray) => {
@@ -88,15 +88,15 @@ const LoopModeInfinityLoop = () => {
         });
       },
       slidePrevTransitionEnd: (swiper) => {
-        console.log("prev slide");
+        // console.log("prev slide");
         setVideoIndex((videoIndex) => videoIndex - 1);
         setSwipeActiveIndex(swiper.activeIndex);
       }
     }
   };
 
-  console.log("before swiper render");
-  console.log("videoIndex: ", videoIndex);
+  // console.log("before swiper render");
+  // console.log("videoIndex: ", videoIndex);
 
   return (
     <SwiperWrapper>
@@ -112,6 +112,7 @@ const LoopModeInfinityLoop = () => {
               playing={index === swipeActiveIndex}
               video={contentStatus[index].video}
               vote={contentStatus[index].vote}
+              comment={contentStatus[index].comment}
             />
           </div>
         ))}
